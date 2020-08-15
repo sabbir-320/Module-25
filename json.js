@@ -32,22 +32,26 @@ function displayUsers(users) {
 }
 
 // how to post data
-document.querySelector('#btn').addEventListener('click', ()=>{
+document.querySelector('#btn').addEventListener('click', () => {
     const nameInput = document.querySelector('#name-input').value;
     const emailInput = document.querySelector('#email-input').value;
-    const post = {title:nameInput, body:emailInput }
+    const post = { name: nameInput, email: emailInput }
     displayInput(post)
 })
 
 
-function displayInput (postInfo){
+function displayInput(postInfo) {
     fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify(postInfo),
-    headers: {
-        "Content-type": "application/json; charset=UTF-8"
-    }
-})
-    .then(response => response.json())
-    .then(data => console.log(data))
+        method: 'POST',
+        body: JSON.stringify(postInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
 }
+
+
+
+
